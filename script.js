@@ -36,15 +36,16 @@ function playRound(humanChoice, computerChoice){
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")){
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            console.log(`You win! ${cap(humanChoice)} beats ${cap(computerChoice)}`);
             humanScore++;
     } else {
-        console.log(`You lose! ${humanChoice} is beaten by ${computerChoice}`);
+        console.log(`You lose! ${cap(humanChoice)} is beaten by ${cap(computerChoice)}`);
         computerScore++;
     }
 
 }
 
+let cap = (str) => str.At(0).toUpperCase() + str.slice(1); 
 
 function playGame() {
     let humanSelection;
