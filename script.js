@@ -45,27 +45,13 @@ function playRound(humanChoice, computerChoice){
 
 }
 
-let cap = (str) => str.At(0).toUpperCase() + str.slice(1); 
+let cap = (str) => str.charAt(0).toUpperCase() + str.slice(1); 
 
-function playGame() {
-    let humanSelection;
-    let computerSelection;
-        
-    for(let i = 0; i< 5; i++) {
-        humanSelection = getHumanChoice();
-        computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        
-    }
+const buttons = document.querySelectorAll("button");
 
-    if(humanScore > computerScore){
-        console.log("Amazing! You won!");
-    } else if (computerScore > humanScore) {
-        console.log("Sorry! The computer won!");
-    } else {
-        console.log("It's a tie");
-    }
 
-}
-
-playGame();
+buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        playRound(btn.id, getComputerChoice());
+    });
+});
