@@ -16,15 +16,6 @@ function getComputerChoice(){
     return result;
 }
 
-function getHumanChoice(){
-    let choice = prompt("rock, paper or scissors ?").toLowerCase();
-    while(!(choice === 'rock' || choice === 'paper' || choice === 'scissors')){
-        alert("Wrong choice! enter again :")
-        choice = prompt("rock, paper or scissors ?").toLowerCase();
-    }
-    return choice;
-}
-
 let humanScore = 0;
 let computerScore = 0;
 
