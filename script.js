@@ -55,5 +55,23 @@ const buttons = document.querySelectorAll("button");
 buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
         playRound(btn.id, getComputerChoice());
+        displayRunningScore();
     });
 });
+
+function displayRunningScore(){
+    const div = document.querySelector("div");
+    const displayPara = document.createElement("p");
+    const displayWinner = document.createElement("h3");
+    displayPara.textContent = `Player : ${humanScore}, Computer : ${computerScore}`;
+    div.appendChild(displayPara);
+    if(computerScore >= 5){
+        displayWinner.textContent = `The winner is computer`;
+        div.appendChild(displayWinner);
+        computerScore = humanScore = 0;
+    } else if(humanScore >= 5){
+        displayWinner.textContent = 'The winner is player';
+        div.appendChild(displayWinner);
+        computerScore = humanScore = 0;
+    }    
+}
