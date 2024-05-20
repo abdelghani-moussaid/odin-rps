@@ -30,19 +30,21 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice){
 
+    const div = document.querySelector("#display-result");
+    const para = document.createElement("p");
     if(humanChoice ===  computerChoice){
-        console.log("There's a tie!!");
+        para.textContent = "There's a tie!!";
     } else if(
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")){
-            console.log(`You win! ${cap(humanChoice)} beats ${cap(computerChoice)}`);
+            para.textContent =  `You win! ${cap(humanChoice)} beats ${cap(computerChoice)}`;
             humanScore++;
     } else {
-        console.log(`You lose! ${cap(humanChoice)} is beaten by ${cap(computerChoice)}`);
+        para.textContent = `You lose! ${cap(humanChoice)} is beaten by ${cap(computerChoice)}`;
         computerScore++;
     }
-
+    div.appendChild(para);
 }
 
 let cap = (str) => str.charAt(0).toUpperCase() + str.slice(1); 
