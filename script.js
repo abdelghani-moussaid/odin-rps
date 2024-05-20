@@ -54,6 +54,7 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
+        resetDiv();
         playRound(btn.id, getComputerChoice());
         displayRunningScore();
     });
@@ -73,5 +74,12 @@ function displayRunningScore(){
         displayWinner.textContent = 'The winner is player';
         div.appendChild(displayWinner);
         computerScore = humanScore = 0;
-    }    
+    }
+}
+
+function resetDiv(){
+    const div = document.querySelector("div");
+    while(div.firstChild) {
+        div.removeChild(div.firstChild);
+    }
 }
